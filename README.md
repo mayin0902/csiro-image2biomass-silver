@@ -1,6 +1,10 @@
 # CSIRO Image2Biomass Prediction
 
-Kaggle Silver Medal solution for **CSIRO - Image2Biomass Prediction**.
+![Kaggle](https://img.shields.io/badge/Kaggle-Silver%20Medal-C0C0C0)
+![Rank](https://img.shields.io/badge/Rank-83%20%2F%203803-blue)
+![Organizer](https://img.shields.io/badge/Organizer-CSIRO-green)
+
+**Kaggle Silver Medal solution**, ranked **83 / 3803** in **CSIRO - Image2Biomass Prediction**.
 
 This competition asks participants to predict five biomass targets from high-resolution UAV top-view grassland images. The final solution combines a dual-view vision backbone, structured multi-target regression, and a semantic compensation branch for small-sample robustness.
 
@@ -10,8 +14,8 @@ This competition asks participants to predict five biomass targets from high-res
 | --- | --- |
 | Competition | CSIRO - Image2Biomass Prediction |
 | Organizer | CSIRO |
-| Medal | Silver |
-| Rank | 83 / 3803 |
+| Medal | **Silver Medal** |
+| Rank | **83 / 3803** |
 | Awarded | January 29, 2026 |
 | Metric | Weighted R2 |
 
