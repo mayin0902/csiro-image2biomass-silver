@@ -1,0 +1,63 @@
+seed: 42
+
+paths:
+  data_root: /kaggle/input/csiro-biomass
+  train_csv: /kaggle/input/csiro-biomass/train.csv
+  test_csv: /kaggle/input/csiro-biomass/test.csv
+  train_image_dir: /kaggle/input/csiro-biomass/train
+  test_image_dir: /kaggle/input/csiro-biomass/test
+  split_csv: /kaggle/input/csiro-datasplit/csiro_data_split.csv
+  model_dir: /kaggle/working/models_trained
+  output_dir: /kaggle/working/outputs
+  siglip_model_path: /kaggle/input/google-siglip-so400m-patch14-384/transformers/default/1
+
+model:
+  model_name: vit_huge_plus_patch16_dinov3.lvd1689m
+  img_size: 512
+  dropout: 0.2
+  use_pretrained: true
+  targets:
+    - Dry_Green_g
+    - Dry_Dead_g
+    - Dry_Clover_g
+    - GDM_g
+    - Dry_Total_g
+  target_max:
+    Dry_Clover_g: 71.7865
+    Dry_Dead_g: 83.8407
+    Dry_Green_g: 157.9836
+    Dry_Total_g: 185.70
+    GDM_g: 157.9836
+
+train:
+  n_folds: 4
+  folds_to_train: [0, 1, 2, 3]
+  batch_size: 6
+  num_workers: 0
+  epochs: 210
+  warmup_epochs: 2
+  lr_backbone: 1.0e-5
+  lr_head: 5.0e-4
+  weight_decay: 1.0e-2
+  clip_grad_norm: 1.0
+  early_stopping_patience: 15
+  smooth_l1_beta: 5.0
+
+inference:
+  batch_size: 2
+  n_folds: 4
+  dino_weight: 0.70
+  siglip_weight: 0.30
+  clover_scale: 0.8
+  dead_low_threshold: 10.0
+  dead_high_threshold: 20.0
+  dead_low_scale: 0.9
+  dead_high_scale: 1.1
+
+metric:
+  weighted_r2_weights:
+    Dry_Green_g: 0.1
+    Dry_Dead_g: 0.1
+    Dry_Clover_g: 0.1
+    GDM_g: 0.2
+    Dry_Total_g: 0.5

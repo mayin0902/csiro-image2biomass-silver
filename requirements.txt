@@ -1,0 +1,14 @@
+numpy
+pandas
+opencv-python
+pillow
+tqdm
+pyyaml
+albumentations
+scikit-learn
+lightgbm
+catboost
+transformers
+timm
+torch
+torchvision

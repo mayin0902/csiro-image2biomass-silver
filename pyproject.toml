@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csiro-image2biomass-solution"
+version = "0.1.0"
+description = "Kaggle Silver Medal solution for CSIRO Image2Biomass Prediction."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "pillow",
+  "pyyaml",
+  "scikit-learn",
+  "torch",
+  "timm",
+]
+
+[project.optional-dependencies]
+gbdt = [
+  "catboost",
+  "lightgbm",
+  "transformers",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
