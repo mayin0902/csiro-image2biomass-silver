@@ -22,6 +22,8 @@ def main() -> None:
     cfg = load_config(args.config)
     result = run_inference(cfg)
     output_path = args.output or str(cfg.path("output_dir") / "submission_wide.csv")
+    if "://" not in output_path:
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(output_path, index=False)
     print(f"saved to {output_path}")
 
