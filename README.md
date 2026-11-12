@@ -55,6 +55,8 @@ python scripts/train.py --config configs/kaggle_dino_siglip.yaml
 python scripts/infer.py --config configs/kaggle_dino_siglip.yaml
 ```
 
+Inference writes `submission_wide.csv` under the configured `paths.output_dir`. Pass `--output ./submission_wide.csv` to write the CSV in the current directory.
+
 The Kaggle data and pretrained model paths are configured in `configs/kaggle_dino_siglip.yaml`.
 
 ## Core Components
