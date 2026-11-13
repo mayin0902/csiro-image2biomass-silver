@@ -17,6 +17,9 @@ def weighted_r2_score(
     if not np.isfinite(weight_array).all() or not np.isfinite(weight_total) or weight_total == 0:
         raise ValueError("Weights must be finite and have a finite, nonzero sum.")
 
+    # Cast before subtraction and squaring to avoid integer wraparound.
+    y_true = y_true.astype(np.float64, copy=False)
+    y_pred = y_pred.astype(np.float64, copy=False)
     r2_scores: list[float] = []
     for idx in range(y_true.shape[1]):
         yt = y_true[:, idx]
